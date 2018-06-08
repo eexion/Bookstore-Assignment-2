@@ -15,10 +15,10 @@ public class CD {
 	    	yearmade=0;	
 	    } 
 	    
-	   public CD(String title,int duration,String director,String genre,int yearmade){
+	   public CD(String title,int duration,String producer,String genre,int yearmade){
 		   this.title=title;
 		   this.duration=duration;
-		   this.producer=director;
+		   this.producer=producer;
 		   this.genre=genre;
 		   this.yearmade=yearmade;
 	   }
@@ -34,7 +34,7 @@ public class CD {
 	   public int getduration(){
 		   return duration;
 	   }
-	   public void setproducer(String director){
+	   public void setproducer(String producer){
 		   this.producer=producer;
 	   }
 	   public  String getproducer(){
