@@ -37,7 +37,7 @@ public class DVD  {
    public void setdirector(String director){
 	   this.director=director;
    }
-   public  String getdirectior(){
+   public  String getdirector(){
 	   return director;
    }
    public void setgenre(String genre){
