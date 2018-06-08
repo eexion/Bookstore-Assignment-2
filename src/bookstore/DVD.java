@@ -1,33 +1,26 @@
 package bookstore;
 
-public class DVD  {
-	String title;
+public class DVD extends Common  {
     int duration;
     String director;
     String genre;
     int yearmade;
     
     public DVD(){
-    	title="";
     	duration=0;
     	director="";
     	genre="";
     	yearmade=0;	
     } 
     
-   public DVD(String title,int duration,String director,String genre,int yearmade){
-	   this.title=title;
+   public DVD(int duration,String director,String genre,int yearmade){
+	   
 	   this.duration=duration;
 	   this.director=director;
 	   this.genre=genre;
 	   this.yearmade=yearmade;
    }
-   public void settitle(String title){
-	   this.title=title;
-   }
-   public String gettitle(){
-	   return title;
-   }
+
    public void setduration(int duration){
 	   this.duration=duration;
    }
