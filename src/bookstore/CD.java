@@ -18,7 +18,7 @@ public class CD {
 	   public CD(String title,int duration,String director,String genre,int yearmade){
 		   this.title=title;
 		   this.duration=duration;
-		   this.director=director;
+		   this.producer=director;
 		   this.genre=genre;
 		   this.yearmade=yearmade;
 	   }
@@ -34,10 +34,10 @@ public class CD {
 	   public int getduration(){
 		   return duration;
 	   }
-	   public void setdirector(String director){
+	   public void setproducer(String director){
 		   this.director=director;
 	   }
-	   public  String getdirectior(){
+	   public  String getproducer(){
 		   return director;
 	   }
 	   public void setgenre(String genre){
