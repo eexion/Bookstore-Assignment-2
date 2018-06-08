@@ -1,14 +1,12 @@
 package bookstore;
 
-public class CD {
-		String title;
+public class CD extends Common {
 	    int duration;
 	    String producer;
 	    String genre;
 	    int yearmade;
 	    
 	    public CD(){
-	    	title="";
 	    	duration=0;
 	    	producer="";
 	    	genre="";
@@ -16,18 +14,12 @@ public class CD {
 	    } 
 	    
 	   public CD(String title,int duration,String producer,String genre,int yearmade){
-		   this.title=title;
 		   this.duration=duration;
 		   this.producer=producer;
 		   this.genre=genre;
 		   this.yearmade=yearmade;
 	   }
-	   public void settitle(String title){
-		   this.title=title;
-	   }
-	   public String gettitle(){
-		   return title;
-	   }
+	
 	   public void setduration(int duration){
 		   this.duration=duration;
 	   }
