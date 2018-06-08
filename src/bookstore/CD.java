@@ -3,14 +3,14 @@ package bookstore;
 public class CD {
 		String title;
 	    int duration;
-	    String director;
+	    String producer;
 	    String genre;
 	    int yearmade;
 	    
 	    public CD(){
 	    	title="";
 	    	duration=0;
-	    	director="";
+	    	producer="";
 	    	genre="";
 	    	yearmade=0;	
 	    } 
@@ -35,10 +35,10 @@ public class CD {
 		   return duration;
 	   }
 	   public void setproducer(String director){
-		   this.director=director;
+		   this.producer=producer;
 	   }
 	   public  String getproducer(){
-		   return director;
+		   return producer;
 	   }
 	   public void setgenre(String genre){
 		   this.genre=genre;
