@@ -5,6 +5,16 @@ import java.util.ArrayList;
 import bookstore.Common;
 
 public interface ICommon {
+	String name ="";
+	String description="";
+	int inventor=0;
+	String type="";
+	int quantity=0;
+	String status="";
+	double price=0;
+	double total=0;
+	String rentalPrice="";
+	String category="";
 	public void setName(String name);
 	public String getName();
 	public void setQuantity(int quantity);
@@ -23,5 +33,6 @@ public interface ICommon {
 	public double getTax(double total);
 	public void setRentalPrice(String rentalPrice);
 	public String getRentalPrice();
-	
+	public String getCategory();
+	public void setCategory(String category);
 }
