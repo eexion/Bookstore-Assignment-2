@@ -1,10 +1,10 @@
 package bookstore;
 
 public class DVD extends Common  {
-    int duration;
-    String director;
-    String genre;
-    int yearmade;
+    private int duration;
+   private  String director;
+  private    String genre;
+   private  int yearmade;
     
     public DVD(){
     	duration=0;
