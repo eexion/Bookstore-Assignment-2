@@ -4,7 +4,7 @@ public class DVD extends Common  {
     private int duration;
    private  String director;
   private    String genre;
-   private  int yearmade;
+    int yearmade;
     
     public DVD(){
     	duration=0;
@@ -36,7 +36,7 @@ public class DVD extends Common  {
    public void setgenre(String genre){
 	   this.genre=genre;
    }
-   public String genre(){
+   public String getgenre(){
 	   return genre;
    }
    public void setyearmade(int yearmade){
