@@ -1,10 +1,10 @@
 package bookstore;
 
 public class CD extends Common {
-	    int duration;
-	    String producer;
-	    String genre;
-	    int yearmade;
+	    private int duration;
+	     private String producer;
+	    private String genre;
+	     private int yearmade;
 	    
 	    public CD(){
 	    	duration=0;
