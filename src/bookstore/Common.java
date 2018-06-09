@@ -12,17 +12,20 @@ public class Common implements ICommon {
 	private double price;
 	private double total;
 	private String rentalPrice;
+	private String category;
 	private final static double TAX = 0.1;
 	public Common() {
-		this("","",0, "", 2, "");
+		this("","",0, "", 2, "", 0.0, "");
 	}
-	public Common(String name, String description, int inventory, String type, int quantity, String status) {
+	public Common(String name, String description, int inventory, String type, int quantity, String status, double price,String rentalPrice) {
 		this.name = name;
 		this.description =description;
 		this.inventory = inventory;
 		this.type = type;
 		this.quantity = quantity;
 		this.status = status;
+		this.price = price;
+		this.rentalPrice = rentalPrice;
 	}
 	@Override
 	public void setName(String name) {
@@ -120,4 +123,15 @@ public class Common implements ICommon {
 		// TODO Auto-generated method stub
 		return this.rentalPrice;
 	}
+	@Override
+	public String getCategory() {
+		// TODO Auto-generated method stub
+		return this.category;
+	}
+	@Override
+	public void setCategory(String category) {
+		// TODO Auto-generated method stub
+		this.category = category;
+	}
+	
 }
