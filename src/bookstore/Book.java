@@ -19,6 +19,7 @@ public class Book extends Common {
 	public void setAuthor(String author) {
 		this.author = author;
 	}
+	
 	public int getYear() {
 		return this.year;
 	}
