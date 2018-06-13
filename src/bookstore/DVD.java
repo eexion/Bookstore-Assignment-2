@@ -9,7 +9,7 @@ public class DVD extends Common implements ICDS{
 	  private  int yearmade;
 	    
 	    public DVD(){
-	    	duration=0;
+	    	duration=0.0;
 	    	producer="";
 	    	genre="";
 	    	yearmade=0;	
