@@ -2,5 +2,15 @@
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="C:/Users/User/Downloads/gson-2.6.2-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/User/Downloads/json-20140107.jar"/>
+	<classpathentry kind="lib" path="C:/Users/User/Downloads/jar_files/json-simple-2.1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/User/Downloads/fastjson-1.2.47.jar"/>
+	<classpathentry kind="lib" path="C:/Users/User/Downloads/commons-io-2.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/User/Downloads/guava-16.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/User/Downloads/jackson-databind-2.9.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/User/Downloads/jackson-core-2.9.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/User/Downloads/jackson-annotations-2.9.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/User/Downloads/junit.jar/junit.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
