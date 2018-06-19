@@ -314,7 +314,7 @@ public class MainFunctions {
 		Object obj;
 		try {
 			ArrayList<JSONObject> arr = new ArrayList<JSONObject>();
-			obj = parser.parse(new FileReader("C:\\Users\\User\\Documents\\products\\products.json"));
+			obj = parser.parse(new FileReader("products.json"));
 			JSONObject jsonObject = (JSONObject) obj;
 			JSONArray msg = (JSONArray) jsonObject.get(key);
 			Iterator<JSONObject> iterator = msg.iterator();
@@ -341,7 +341,7 @@ public class MainFunctions {
 			throws FileNotFoundException, IOException, ParseException {
 		JSONParser parser = new JSONParser();
 		Object obj;
-		obj = parser.parse(new FileReader("C:\\Users\\User\\Documents\\products\\products.json"));
+		obj = parser.parse(new FileReader("products.json"));
 		JSONObject jsonObject = (JSONObject) obj;
 		JSONArray msg = (JSONArray) jsonObject.get(key);
 		Iterator<JSONObject> iterator = msg.iterator();
@@ -350,7 +350,7 @@ public class MainFunctions {
 			String name = (String) json.get("name");
 			if (name.equals(itemToUpdate)) {
 				json.put(valueToUpdate, valueToSet);
-				try (FileWriter file = new FileWriter("C:\\Users\\User\\Documents\\products\\products.json")) {
+				try (FileWriter file = new FileWriter("products.json")) {
 					file.write(obj.toString());
 				}
 			}
