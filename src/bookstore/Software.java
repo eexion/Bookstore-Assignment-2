@@ -12,25 +12,19 @@ public class Software extends Common {
 		this.author = author;
 		this.year = year;
 	}
-	@Override
 	public String getAuthor() {
 		// TODO Auto-generated method stub
 		return this.author;
 	}
 
-	@Override
 	public void setAuthor(String author) {
 		// TODO Auto-generated method stub
 		this.author = author;
 	}
-
-	@Override
 	public int getYear() {
 		// TODO Auto-generated method stub
 		return this.year;
 	}
-
-	@Override
 	public void setYear(int year) {
 		// TODO Auto-generated method stub
 		this.year = year;

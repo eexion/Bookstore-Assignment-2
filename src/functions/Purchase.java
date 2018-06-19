@@ -104,7 +104,7 @@ public class Purchase {
 					String status = (String) item.get("status");
 					double price = (double) item.get("price");
 					String rentalPrice = (String)item.get("rentalPrice");
-					String author = (String) item.get("Author");
+					String producer = (String) item.get("Author");
 					int year = (int) Integer.parseInt((String) item.get("year"));
 					int inventory = (int) Integer.parseInt((String)item.get("inventory"));
 
@@ -114,7 +114,7 @@ public class Purchase {
 				        dvd.setDescription(description);
 				        dvd.setInventory(inventory);
 				        dvd.setPrice(price);
-				        dvd.setAuthor(author);
+				        dvd.setProducer(producer);
 				        dvd.setQuantity(1);
 				        dvd.setRentalPrice(rentalPrice);
 				        dvd.setStatus(status);

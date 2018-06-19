@@ -101,7 +101,7 @@ public class Rent {
 				String status = (String) item.get("status");
 				double price = (double) item.get("price");
 				String rentalPrice = (String)item.get("rentalPrice");
-				String author = (String) item.get("Author");
+				String producer = (String) item.get("Author");
 				int year = (int) Integer.parseInt((String) item.get("year"));
 				int inventory = (int) Integer.parseInt((String)item.get("inventory"));
 
@@ -111,7 +111,7 @@ public class Rent {
 			        dvd.setDescription(description);
 			        dvd.setInventory(inventory);
 			        dvd.setPrice(Double.parseDouble(rentalPrice));
-			        dvd.setAuthor(author);
+			        dvd.setProducer(producer);
 			        dvd.setQuantity(1);
 			        dvd.setRentalPrice(rentalPrice);
 			        dvd.setStatus(status);
@@ -173,7 +173,7 @@ public class Rent {
 				String status = (String) item.get("status");
 				double price = (double) item.get("price");
 				String rentalPrice = (String)item.get("rentalPrice");
-				String author = (String) item.get("Author");
+				String producer = (String) item.get("Author");
 				int year = (int) Integer.parseInt((String) item.get("year"));
 				int inventory = (int) Integer.parseInt((String)item.get("inventory"));
 			    if (Pattern.compile(Pattern.quote(inputName), Pattern.CASE_INSENSITIVE).matcher(name).find()){
@@ -182,7 +182,7 @@ public class Rent {
 			        cd.setDescription(description);
 			        cd.setInventory(inventory);
 			        cd.setPrice(Double.parseDouble(rentalPrice));
-			        cd.setAuthor(author);
+			        cd.setProducer(producer);
 			        cd.setQuantity(1);
 			        cd.setRentalPrice(rentalPrice);
 			        cd.setStatus(status);
