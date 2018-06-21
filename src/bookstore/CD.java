@@ -68,5 +68,5 @@ public class CD extends Common implements ICDS{
 		// TODO Auto-generated method stub
 		this.duration = duration;
 	}
-	
+
 }

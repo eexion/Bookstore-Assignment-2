@@ -5,7 +5,8 @@ public interface ICDS {
 	String producer = "";
 	String genre = "";
 	int yearmade = 0;
-
+	int rented = 0;
+	boolean isRented = false;
 	public String getProducer();
 
 	public void setProducer(String producer);
@@ -21,4 +22,5 @@ public interface ICDS {
 	public double getDuration();
 
 	public void setDuration(double duration);
+	
 }

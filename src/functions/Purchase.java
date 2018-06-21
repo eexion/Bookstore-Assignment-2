@@ -18,7 +18,7 @@ public class Purchase {
 		Scanner scanner = new Scanner(System.in);
 		try {
 			ArrayList<Book> books = new ArrayList<Book>();
-			ArrayList<JSONObject> products = MainFunctions.readJson("books");
+			ArrayList<JSONObject> products = JsonHandler.readJson("books");
 
 			MainFunctions.show(products);
 			System.out.println("\nWhat Book Would you Like To Purchase?");
@@ -47,6 +47,8 @@ public class Purchase {
 			        book.setType(type);
 			        book.setYear(year);
 			        book.setCategory("books");
+			        book.setIsRented(false);
+			        
 			        books.add(book);
 			        found = true;
 			    }
@@ -67,7 +69,8 @@ public class Purchase {
 			do {
 				System.out.println("Enter the quantity : ");
 				String quantity = scanner.nextLine();
-				if(bookToReturn.getInventory() < Integer.parseInt(quantity)) {
+				int booksAvailable = bookToReturn.getInventory() - bookToReturn.getRented();
+				if(booksAvailable < Integer.parseInt(quantity)) {
 					System.out.println("Not enough inventory for this purchase there is only " + bookToReturn.getInventory() + " available");
 				}else {
 					bookToReturn.setQuantity(Integer.parseInt(quantity));
@@ -90,7 +93,7 @@ public class Purchase {
 	 public DVD purchaseDVD() throws Exception {
 		 Scanner scanner = new Scanner(System.in);
 			try {
-				ArrayList<JSONObject> products = MainFunctions.readJson("dvd");
+				ArrayList<JSONObject> products = JsonHandler.readJson("dvd");
 
 				MainFunctions.show(products);
 				ArrayList<DVD> dvds = new ArrayList<DVD>();
@@ -121,6 +124,7 @@ public class Purchase {
 				        dvd.setType(type);
 				        dvd.setYear(year);
 				        dvd.setCategory("dvd");
+				        dvd.setIsRented(false);
 				        dvds.add(dvd);
 				        found = true;
 				    }
@@ -141,7 +145,8 @@ public class Purchase {
 				do {
 					System.out.println("Enter the quantity : ");
 					String quantity = scanner.nextLine();
-					if(dvdToReturn.getInventory() < Integer.parseInt(quantity)) {
+					int available = dvdToReturn.getInventory() - dvdToReturn.getRented();
+					if(available < Integer.parseInt(quantity)) {
 						System.out.println("Not enough inventory for this purchase there is only " + dvdToReturn.getInventory() + " available");
 					}else {
 						dvdToReturn.setQuantity(Integer.parseInt(quantity));
@@ -162,7 +167,7 @@ public class Purchase {
 	 public Common purchaseCD() throws Exception {
 		 Scanner scanner = new Scanner(System.in);
 			try {
-				ArrayList<JSONObject> products = MainFunctions.readJson("cd");
+				ArrayList<JSONObject> products = JsonHandler.readJson("cd");
 				MainFunctions.show(products);
 				ArrayList<CD> cds = new ArrayList<CD>();
 				System.out.println("\nWhat Book Would you Like To Purchase?");
@@ -191,6 +196,7 @@ public class Purchase {
 				        cd.setType(type);
 				        cd.setYear(year);
 				        cd.setCategory("cd");
+				        cd.setIsRented(false);
 				        cds.add(cd);
 				        found = true;
 				    }
@@ -211,7 +217,8 @@ public class Purchase {
 				do {
 					System.out.println("Enter the quantity : ");
 					String quantity = scanner.nextLine();
-					if(cdToReturn.getInventory() < Integer.parseInt(quantity)) {
+					int available = cdToReturn.getInventory() - cdToReturn.getRented();
+					if(available < Integer.parseInt(quantity)) {
 						System.out.println("Not enough inventory for this purchase there is only " + cdToReturn.getInventory() + " available");
 					}else {
 						cdToReturn.setQuantity(Integer.parseInt(quantity));
@@ -232,7 +239,7 @@ public class Purchase {
 	 public Common purchaseSoftware() throws Exception {
 		 Scanner scanner = new Scanner(System.in);
 			try {
-				ArrayList<JSONObject> products = MainFunctions.readJson("software");
+				ArrayList<JSONObject> products = JsonHandler.readJson("software");
 
 				MainFunctions.show(products);
 				ArrayList<Software> softwares = new ArrayList<Software>();
@@ -304,7 +311,7 @@ public class Purchase {
 	 public Common purchaseHardware() throws Exception {
 		 Scanner scanner = new Scanner(System.in);
 			try {
-				ArrayList<JSONObject> products = MainFunctions.readJson("hardware");
+				ArrayList<JSONObject> products = JsonHandler.readJson("hardware");
 				ArrayList<Hardware> Hardwares = new ArrayList<Hardware>();
 				MainFunctions.show(products);
 				System.out.println("\nWhat Book Would you Like To Purchase?");

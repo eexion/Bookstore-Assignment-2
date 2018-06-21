@@ -6,11 +6,12 @@ public class Book extends Common {
 	public String author;
 	public int year;
 	public Book() {
-		this("", 1990);
+		this("", 1990, 0);
 	}
-	public Book(String author, int year) {
+	public Book(String author, int year, int rented) {
 		this.author = author;
 		this.year = year;
+		this.rented = rented;
 	}
 	public String getAuthor() {
 		return this.author;

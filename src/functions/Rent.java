@@ -16,7 +16,7 @@ public class Rent {
 		Scanner scanner = new Scanner(System.in);
 		try {
 			ArrayList<Book> books = new ArrayList<Book>();
-			ArrayList<JSONObject> products = MainFunctions.readJson("books");
+			ArrayList<JSONObject> products = JsonHandler.readJson("books");
 
 			MainFunctions.show(products);
 			System.out.println("\nWhat Book Would you Like To Purchase?");
@@ -31,6 +31,7 @@ public class Rent {
 				String rentalPrice = (String)item.get("rentalPrice");
 				String author = (String) item.get("Author");
 				int year = (int) Integer.parseInt((String) item.get("year"));
+				int rented = (int) Integer.parseInt((String) item.get("rented"));
 				int inventory = (int) Integer.parseInt((String)item.get("inventory"));
 			    if (Pattern.compile(Pattern.quote(inputName), Pattern.CASE_INSENSITIVE).matcher(name).find()){
 			    	Book book = new Book();		
@@ -45,6 +46,8 @@ public class Rent {
 			        book.setType(type);
 			        book.setYear(year);
 			        book.setCategory("books");
+			        book.setRented(rented);
+			        book.setIsRented(true);
 			        books.add(book);
 			        found = true;
 			    }
@@ -65,7 +68,8 @@ public class Rent {
 			do {
 				System.out.println("Enter the quantity : ");
 				String quantity = scanner.nextLine();
-				if(bookToReturn.getInventory() < Integer.parseInt(quantity)) {
+				int available = bookToReturn.getInventory() - bookToReturn.getRented();
+				if(available < Integer.parseInt(quantity)) {
 					System.out.println("Not enough inventory for this purchase there is only " + bookToReturn.getInventory() + " available");
 				}else {
 					bookToReturn.setQuantity(Integer.parseInt(quantity));
@@ -87,7 +91,7 @@ public class Rent {
 	public Common rentDVD() throws Exception {
 		Scanner scanner = new Scanner(System.in);
 		try {
-			ArrayList<JSONObject> products = MainFunctions.readJson("dvd");
+			ArrayList<JSONObject> products = JsonHandler.readJson("dvd");
 
 			MainFunctions.show(products);
 			ArrayList<DVD> dvds = new ArrayList<DVD>();
@@ -104,6 +108,7 @@ public class Rent {
 				String producer = (String) item.get("Author");
 				int year = (int) Integer.parseInt((String) item.get("year"));
 				int inventory = (int) Integer.parseInt((String)item.get("inventory"));
+				int rented = (int) Integer.parseInt((String) item.get("rented"));
 
 			    if (Pattern.compile(Pattern.quote(inputName), Pattern.CASE_INSENSITIVE).matcher(name).find()){
 			    	DVD dvd = new DVD();		
@@ -118,6 +123,8 @@ public class Rent {
 			        dvd.setType(type);
 			        dvd.setYear(year);
 			        dvd.setCategory("dvd");
+			        dvd.setRented(rented);
+			        dvd.setIsRented(true);
 			        dvds.add(dvd);
 			        found = true;
 			    }
@@ -138,7 +145,8 @@ public class Rent {
 			do {
 				System.out.println("Enter the quantity : ");
 				String quantity = scanner.nextLine();
-				if(dvdToReturn.getInventory() < Integer.parseInt(quantity)) {
+				int available = dvdToReturn.getInventory() - dvdToReturn.getRented();
+				if(available < Integer.parseInt(quantity)) {
 					System.out.println("Not enough inventory for this purchase there is only " + dvdToReturn.getInventory() + " available");
 				}else {
 					dvdToReturn.setQuantity(Integer.parseInt(quantity));
@@ -160,7 +168,7 @@ public class Rent {
 	public Common rentCD() throws Exception {
 		Scanner scanner = new Scanner(System.in);
 		try {
-			ArrayList<JSONObject> products = MainFunctions.readJson("cd");
+			ArrayList<JSONObject> products = JsonHandler.readJson("cd");
 			MainFunctions.show(products);
 			ArrayList<CD> cds = new ArrayList<CD>();
 			System.out.println("\nWhat Book Would you Like To Purchase?");
@@ -176,6 +184,7 @@ public class Rent {
 				String producer = (String) item.get("Author");
 				int year = (int) Integer.parseInt((String) item.get("year"));
 				int inventory = (int) Integer.parseInt((String)item.get("inventory"));
+				int rented = (int) Integer.parseInt((String) item.get("rented"));
 			    if (Pattern.compile(Pattern.quote(inputName), Pattern.CASE_INSENSITIVE).matcher(name).find()){
 			    	CD cd = new CD();		
 			        cd.setName(name);
@@ -189,6 +198,8 @@ public class Rent {
 			        cd.setType(type);
 			        cd.setYear(year);
 			        cd.setCategory("cd");
+			        cd.setRented(rented);
+			        cd.setIsRented(true);
 			        cds.add(cd);
 			        found = true;
 			    }
@@ -209,7 +220,8 @@ public class Rent {
 			do {
 				System.out.println("Enter the quantity : ");
 				String quantity = scanner.nextLine();
-				if(cdToReturn.getInventory() < Integer.parseInt(quantity)) {
+				int available = cdToReturn.getInventory() - cdToReturn.getRented();
+				if(available < Integer.parseInt(quantity)) {
 					System.out.println("Not enough inventory for this purchase there is only " + cdToReturn.getInventory() + " available");
 				}else {
 					cdToReturn.setQuantity(Integer.parseInt(quantity));

@@ -14,6 +14,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import bookstore.Common;
+import interfaces.ICDS;
 
 @SuppressWarnings("deprecation")
 public class MainFunctions {
@@ -27,8 +28,9 @@ public class MainFunctions {
 			boolean finishSale = false;
 			ArrayList<Common> cart = new ArrayList<Common>();
 			System.out.println(
-					"\nWhat whould you like to do :\n1. Rent\n2. Purchase\n3. Print Products\n4. Show Cart\n5. Finish Sale\n6. Add New Items To Inventory\n7. Exit");
+					"\nWhat whould you like to do :\n1. Rent\n2. Purchase\n3. Print Products\n4. Show Cart\n5. Finish Sale\n6. Add New Items To Inventory\n7. Add To Existing Inventory \n8. Return Rented Item\n9. Exit");
 			String option = scanner.nextLine();
+			AddItems addItems = new AddItems();		
 			switch (option) {
 			case "1":
 				cart = cart(1);
@@ -58,9 +60,16 @@ public class MainFunctions {
 				finishSale = finishSale(products);			
 				break;
 			case "6":
-				addNewItemsToInventory();
+				addItems.menu(false);
 				break;
-			case "7":
+			case "7":	
+				addItems.menu(true);
+				break;
+			case "8":
+				ReturnItems returnItems = new ReturnItems();
+				returnItems.returning();
+				break;
+			case "9":
 				isContinue = false;
 				break;
 			default:
@@ -77,10 +86,17 @@ public class MainFunctions {
 
 	public boolean finishSale(ArrayList<Common> products) throws FileNotFoundException, IOException, ParseException {
 		Common common = new Common();
+		JsonHandler update = new JsonHandler();
 		for (Common item : products) {
 			int remaining = item.getInventory() - item.getQuantity();
-			System.out.println(item);
-			updateJson(item.getCategory(), item.getName(), "inventory", Integer.toString(remaining));
+			System.out.println(item);			
+			if(item.getIsRented()) {
+				int rented = item.getRented();
+				update.updateJson(item.getCategory(), item.getName(), "rented", Integer.toString(rented +=item.getQuantity()));
+			}else {
+				update.updateJson(item.getCategory(), item.getName(), "inventory", Integer.toString(remaining));
+			}
+
 		}
 		System.out.println(String.format("%40s %50s %20s %20s %20s %20s", "Name", "Description", "Quantity",
 				"Type", "Status", "price"));
@@ -94,52 +110,7 @@ public class MainFunctions {
 		System.out.println("\nGrand Total " + total);
 		return true;
 	}
-	public void addNewItemsToInventory() {
-		Scanner scanner = new Scanner(System.in);
-		boolean isContinue = true;
-		do {
-			System.out.println("What whould you like to add ?\n1. Books\n2. DVDs \n3. Music CDs \n4. Hardware \n5. Software \n6. Stationary\n7. Go Back");
-			String option = scanner.nextLine();
-			switch (option) {
-			case "1":
-				
-				break;
-			case "2":
-
-				break;
-			case "3":
-
-				break;
-			case "4":
-
-				break;
-			case "5":
-
-				break;
-			case "6":
-					
-				break;
-			case "7":
-				boolean backConfirm = false;
-				do {
-					System.out.println("Are your sure you would like to go back ? y/n");
-					String input = scanner.nextLine();
-					if(input.equalsIgnoreCase("y")) {
-						isContinue = false;
-						backConfirm = true;
-					}else if(input.equalsIgnoreCase("n")) {
-						backConfirm = true;
-					}
-				}while(!backConfirm);
-				break;
-			default:
-				System.out.println("Invalid input");
-				break;
-			}
-		}while(isContinue);
-		
-		
-	}
+	
 	public ArrayList<Common> cart(int option) throws Exception {
 		ArrayList<Common> cart = new ArrayList<Common>();
 		if (option == 1) {
@@ -251,37 +222,37 @@ public class MainFunctions {
 			ArrayList<JSONObject> products = null;
 			switch (inputOption) {
 			case "1":
-				products = MainFunctions.readJson(cat[0]);
+				products = JsonHandler.readJson(cat[0]);
 				MainFunctions.show(products);
 				break;
 			case "2":
-				products = MainFunctions.readJson(cat[2]);
+				products = JsonHandler.readJson(cat[2]);
 				MainFunctions.show(products);
 
 				break;
 			case "3":
-				products = MainFunctions.readJson(cat[3]);
+				products = JsonHandler.readJson(cat[3]);
 				MainFunctions.show(products);
 
 				break;
 			case "4":
-				products = MainFunctions.readJson(cat[1]);
+				products = JsonHandler.readJson(cat[1]);
 				MainFunctions.show(products);
 
 				break;
 			case "5":
-				products = MainFunctions.readJson(cat[4]);
+				products = JsonHandler.readJson(cat[4]);
 				MainFunctions.show(products);
 
 				break;
 			case "6":
-				products = MainFunctions.readJson(cat[5]);
+				products = JsonHandler.readJson(cat[5]);
 				MainFunctions.show(products);
 				break;
 			case "7":
 				for (String c : cat) {
 					System.out.println("\nAll " + c);
-					products = MainFunctions.readJson(c);
+					products = JsonHandler.readJson(c);
 					MainFunctions.show(products);
 				}
 				break;
@@ -306,54 +277,6 @@ public class MainFunctions {
 			int inventory = (int) Integer.parseInt(item.get("inventory").toString());
 			System.out.println(String.format("%40s %50s %20s %20s %20s %20s %20s", name, description, inventory, type,
 					status, price, rentalPrice));
-		}
-	}
-
-	public static ArrayList<JSONObject> readJson(String key) throws Exception {
-		JSONParser parser = new JSONParser();
-		Object obj;
-		try {
-			ArrayList<JSONObject> arr = new ArrayList<JSONObject>();
-			obj = parser.parse(new FileReader("products.json"));
-			JSONObject jsonObject = (JSONObject) obj;
-			JSONArray msg = (JSONArray) jsonObject.get(key);
-			Iterator<JSONObject> iterator = msg.iterator();
-			while (iterator.hasNext()) {
-				JSONObject json = (JSONObject) iterator.next();
-				arr.add(json);
-			}
-			return arr;
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			throw e;
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			throw e;
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			throw e;
-		}
-	}
-
-	public void updateJson(String key, String itemToUpdate, String valueToUpdate, String valueToSet)
-			throws FileNotFoundException, IOException, ParseException {
-		JSONParser parser = new JSONParser();
-		Object obj;
-		obj = parser.parse(new FileReader("products.json"));
-		JSONObject jsonObject = (JSONObject) obj;
-		JSONArray msg = (JSONArray) jsonObject.get(key);
-		Iterator<JSONObject> iterator = msg.iterator();
-		while (iterator.hasNext()) {
-			JSONObject json = (JSONObject) iterator.next();
-			String name = (String) json.get("name");
-			if (name.equals(itemToUpdate)) {
-				json.put(valueToUpdate, valueToSet);
-				try (FileWriter file = new FileWriter("products.json")) {
-					file.write(obj.toString());
-				}
-			}
 		}
 	}
 }
