@@ -12,6 +12,7 @@ import bookstore.Common;
 import bookstore.DVD;
 import bookstore.Hardware;
 import bookstore.Software;
+import bookstore.Stationary;
 
 public class Purchase {
 	public Book purchaseBook() throws Exception{
@@ -57,9 +58,9 @@ public class Purchase {
 			System.out.println("\nThis is what we have found to select a book please input the index ");
 			System.out.println(String.format("%20s %30s %30s %20s %20s %20s %20s","Index","Name" ,"Description" ,"Inventory" ,"Type" ,"Status", "price"));
 			System.out.println("______________________________________________________________________________________________________________________________________________________________________________________________________________________");
-			
+			int i = 1;
 			for(Book item: books) {
-				int i = 1;
+				
 				System.out.println(String.format("%20s %30s %30s %20s %20s %20s %20s",i , item.getName() ,item.getDescription(),item.getInventory() , item.getType()
 						,item.getStatus(),item.getPrice()));
 				i++;
@@ -98,7 +99,7 @@ public class Purchase {
 
 				MainFunctions.show(products);
 				ArrayList<DVD> dvds = new ArrayList<DVD>();
-				System.out.println("\nWhat Book Would you Like To Purchase?");
+				System.out.println("\nWhat Would you Like To Purchase?");
 				String inputName = scanner.nextLine();
 				boolean found = false;
 				for (JSONObject item : products) {
@@ -134,9 +135,9 @@ public class Purchase {
 				System.out.println("\nThis is what we have found to select a book please input the index ");
 				System.out.println(String.format("%20s %30s %30s %20s %20s %20s %20s","Index","Name" ,"Description" ,"Inventory" ,"Type" ,"Status", "price"));
 				System.out.println("______________________________________________________________________________________________________________________________________________________________________________________________________________________");
-				
+				int i = 1;
 				for(DVD item: dvds) {
-					int i = 1;
+					
 					System.out.println(String.format("%20s %30s %30s %20s %20s %20s %20s",i , item.getName() ,item.getDescription(),item.getInventory() , item.getType()
 							,item.getStatus(),item.getPrice()));
 					i++;
@@ -172,7 +173,7 @@ public class Purchase {
 				ArrayList<JSONObject> products = JsonHandler.readJson("cd");
 				MainFunctions.show(products);
 				ArrayList<CD> cds = new ArrayList<CD>();
-				System.out.println("\nWhat Book Would you Like To Purchase?");
+				System.out.println("\nWhat Would you Like To Purchase?");
 				String inputName = scanner.nextLine();
 				boolean found = false;
 				for (JSONObject item : products) {
@@ -207,9 +208,9 @@ public class Purchase {
 				System.out.println("\nThis is what we have found to select a book please input the index ");
 				System.out.println(String.format("%20s %30s %30s %20s %20s %20s %20s","Index","Name" ,"Description" ,"Inventory" ,"Type" ,"Status", "price"));
 				System.out.println("______________________________________________________________________________________________________________________________________________________________________________________________________________________");
-				
+				int i = 1;
 				for(CD item: cds) {
-					int i = 1;
+					
 					System.out.println(String.format("%20s %30s %30s %20s %20s %20s %20s",i , item.getName() ,item.getDescription(),item.getInventory() , item.getType()
 							,item.getStatus(),item.getPrice()));
 					i++;
@@ -246,7 +247,7 @@ public class Purchase {
 
 				MainFunctions.show(products);
 				ArrayList<Software> softwares = new ArrayList<Software>();
-				System.out.println("\nWhat Book Would you Like To Purchase?");
+				System.out.println("\nWhat Would you Like To Purchase?");
 				String inputName = scanner.nextLine();
 				boolean found = false;
 				for (JSONObject item : products) {
@@ -281,9 +282,9 @@ public class Purchase {
 				System.out.println("\nThis is what we have found to select a book please input the index ");
 				System.out.println(String.format("%20s %30s %30s %20s %20s %20s %20s","Index","Name" ,"Description" ,"Inventory" ,"Type" ,"Status", "price"));
 				System.out.println("______________________________________________________________________________________________________________________________________________________________________________________________________________________");
-				
+				int i = 1;
 				for(Software item: softwares) {
-					int i = 1;
+					
 					System.out.println(String.format("%20s %30s %30s %20s %20s %20s %20s",i , item.getName() ,item.getDescription(),item.getInventory() , item.getType()
 							,item.getStatus(),item.getPrice()));
 					i++;
@@ -318,7 +319,7 @@ public class Purchase {
 				ArrayList<JSONObject> products = JsonHandler.readJson("hardware");
 				ArrayList<Hardware> Hardwares = new ArrayList<Hardware>();
 				MainFunctions.show(products);
-				System.out.println("\nWhat Book Would you Like To Purchase?");
+				System.out.println("\nWhat Would you Like To Purchase?");
 				String inputName = scanner.nextLine();
 				boolean found = false;
 
@@ -354,8 +355,9 @@ public class Purchase {
 				System.out.println("\nThis is what we have found to select a book please input the index ");
 				System.out.println(String.format("%20s %30s %30s %20s %20s %20s %20s","Index","Name" ,"Description" ,"Inventory" ,"Type" ,"Status", "price"));
 				System.out.println("______________________________________________________________________________________________________________________________________________________________________________________________________________________");
+				int i = 1;
 				for(Hardware item: Hardwares) {
-					int i = 1;
+					
 					System.out.println(String.format("%20s %30s %30s %20s %20s %20s %20s",i , item.getName() ,item.getDescription(),item.getInventory() , item.getType()
 							,item.getStatus(),item.getPrice()));
 					i++;
@@ -385,7 +387,79 @@ public class Purchase {
 				throw e;
 			}
 	 }
-	
+	 public Common purchaseStationary() throws Exception {
+		 Scanner scanner = new Scanner(System.in);
+			try {
+				ArrayList<JSONObject> products = JsonHandler.readJson("stationary");
+				ArrayList<Stationary> stationaries = new ArrayList<Stationary>();
+				MainFunctions.show(products);
+				System.out.println("\nWhat Would you Like To Purchase?");
+				String inputName = scanner.nextLine();
+				boolean found = false;
+
+				for (JSONObject item : products) {
+					String name = (String) item.get("name");
+					String description = (String) item.get("description");
+					String type = (String) item.get("type");
+					String status = (String) item.get("status");
+					double price = (double) item.get("price");
+					String rentalPrice = (String)item.get("rentalPrice");
+					String author = (String) item.get("Author");
+					String manufacturer = (String)item.get("manufacturer");
+					int inventory = (int) Integer.parseInt((String)item.get("inventory"));
+					String modelNumber = (String)item.get("model");
+				    if (Pattern.compile(Pattern.quote(inputName), Pattern.CASE_INSENSITIVE).matcher(name).find()){
+				    	Stationary stationary = new Stationary();		
+				        stationary.setName(name);
+				        stationary.setDescription(description);
+				        stationary.setInventory(inventory);
+				        stationary.setPrice(price);
+				        stationary.setManufacturer(manufacturer);
+				        stationary.setQuantity(1);
+				        stationary.setRentalPrice(rentalPrice);
+				        stationary.setStatus(status);
+				        stationary.setType(type);
+				        stationary.setCategory("stationary");
+				        stationaries.add(stationary);
+				        found = true;
+				    }
+				}
+				if(found) {
+				System.out.println("\nThis is what we have found to select a book please input the index ");
+				System.out.println(String.format("%20s %30s %30s %20s %20s %20s %20s","Index","Name" ,"Description" ,"Inventory" ,"Type" ,"Status", "price"));
+				System.out.println("______________________________________________________________________________________________________________________________________________________________________________________________________________________");
+				int i = 1;
+				for(Stationary item: stationaries) {
+
+					System.out.println(String.format("%20s %30s %30s %20s %20s %20s %20s",i , item.getName() ,item.getDescription(),item.getInventory() , item.getType()
+							,item.getStatus(),item.getPrice()));
+					i++;
+					
+				}
+				int index = Integer.parseInt(scanner.nextLine());
+				Stationary hardwareToReturn = stationaries.get(index - 1);
+				boolean isTrue = true;	
+				do {
+					System.out.println("Enter the quantity : ");
+					String quantity = scanner.nextLine();
+					if(hardwareToReturn.getInventory() < Integer.parseInt(quantity)) {
+						System.out.println("Not enough inventory for this purchase there is only " + hardwareToReturn.getInventory() + " available");
+					}else {
+						hardwareToReturn.setQuantity(Integer.parseInt(quantity));
+						isTrue = false;
+					}
+				}while(isTrue);
+				return hardwareToReturn;
+				}else {
+					System.out.println("Nothing Found Please Try Again ");
+					return null;
+				}
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				throw e;
+			}
+	 }
 	
 	/*public void convert() {
 		Common product = null;

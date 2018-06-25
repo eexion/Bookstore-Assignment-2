@@ -77,8 +77,7 @@ public class JsonHandler {
 				
 				double value = Double.parseDouble(valueToSet);
 				double total = amount + value;
-				System.out.println(amount + "\n" + total +"\n"+ value);
-				json.put("amountSpent", value);
+				json.put("amountSpent", total);
 				try (FileWriter file = new FileWriter("customer.json")) {
 					file.write(obj.toString());
 				}

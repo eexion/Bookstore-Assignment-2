@@ -161,7 +161,6 @@ public class MainFunctions {
 		JsonHandler update = new JsonHandler();
 		for (Common item : products) {
 			int remaining = item.getInventory() - item.getQuantity();
-			System.out.println(item);
 			if (item.getIsRented()) {
 				int rented = item.getRented();
 				update.updateJson(item.getCategory(), item.getName(), "rented",
@@ -241,7 +240,7 @@ public class MainFunctions {
 		do {
 			try {
 				System.out.println(
-						"\nWhat whould you like to Purchase \n\n1. Book\n2. DVD \n3. Music\n4. Software\n5. Computer hardware\n6. Go Back");
+						"\nWhat whould you like to Purchase \n\n1. Book\n2. DVD \n3. Music\n4. Software\n5. Computer hardware\n6. Stationary\n7. Go Back");
 				String option = scanner.nextLine();
 				switch (option) {
 				case "1":
@@ -265,7 +264,10 @@ public class MainFunctions {
 					isContinue = false;
 					break;
 				case "6":
-
+					item = purchase.purchaseStationary();
+					isContinue = false;
+					break;
+				case "7":
 					isContinue = false;
 					break;
 				default:

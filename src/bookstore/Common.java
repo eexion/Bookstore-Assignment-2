@@ -17,7 +17,7 @@ public class Common implements ICommon {
 	private String category;
 	public boolean isRented;
 	public int rented;
-	private final static double TAX = 0.1;
+	private final static double TAX = 0.0;
 
 	public Common() {
 		this("", "", 0, "", 2, "", 0.0, "");

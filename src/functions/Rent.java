@@ -19,7 +19,7 @@ public class Rent {
 			ArrayList<JSONObject> products = JsonHandler.readJson("books");
 
 			MainFunctions.show(products);
-			System.out.println("\nWhat Book Would you Like To Purchase?");
+			System.out.println("\nWhat Would you Like To Rent?");
 			String inputName = scanner.nextLine();
 			boolean found = false;
 			for (JSONObject item : products) {
@@ -56,9 +56,9 @@ public class Rent {
 			System.out.println("\nThis is what we have found to select a book please input the index ");
 			System.out.println(String.format("%20s %30s %30s %20s %20s %20s %20s","Index","Name" ,"Description" ,"Inventory" ,"Type" ,"Status", "price"));
 			System.out.println("______________________________________________________________________________________________________________________________________________________________________________________________________________________");
-			
+			int i = 1;
 			for(Book item: books) {
-				int i = 1;
+
 				System.out.println(String.format("%20s %30s %30s %20s %20s %20s %20s",i , item.getName() ,item.getDescription(),item.getInventory() , item.getType()
 						,item.getStatus(),item.getPrice()));
 				i++;
@@ -96,7 +96,7 @@ public class Rent {
 
 			MainFunctions.show(products);
 			ArrayList<DVD> dvds = new ArrayList<DVD>();
-			System.out.println("\nWhat Book Would you Like To Purchase?");
+			System.out.println("\nWhat Would you Like To rent?");
 			String inputName = scanner.nextLine();
 			boolean found = false;
 			for (JSONObject item : products) {
@@ -134,9 +134,9 @@ public class Rent {
 			System.out.println("\nThis is what we have found to select a book please input the index ");
 			System.out.println(String.format("%20s %30s %30s %20s %20s %20s %20s","Index","Name" ,"Description" ,"Inventory" ,"Type" ,"Status", "price"));
 			System.out.println("______________________________________________________________________________________________________________________________________________________________________________________________________________________");
-			
+			int i = 1;
 			for(DVD item: dvds) {
-				int i = 1;
+				
 				System.out.println(String.format("%20s %30s %30s %20s %20s %20s %20s",i , item.getName() ,item.getDescription(),item.getInventory() , item.getType()
 						,item.getStatus(),item.getPrice()));
 				i++;
@@ -173,7 +173,7 @@ public class Rent {
 			ArrayList<JSONObject> products = JsonHandler.readJson("cd");
 			MainFunctions.show(products);
 			ArrayList<CD> cds = new ArrayList<CD>();
-			System.out.println("\nWhat Book Would you Like To Purchase?");
+			System.out.println("\nWhat Would you Like To Rent?");
 			String inputName = scanner.nextLine();
 			boolean found = false;
 			for (JSONObject item : products) {
@@ -210,9 +210,8 @@ public class Rent {
 			System.out.println("\nThis is what we have found to select a book please input the index ");
 			System.out.println(String.format("%20s %30s %30s %20s %20s %20s %20s","Index","Name" ,"Description" ,"Inventory" ,"Type" ,"Status", "price"));
 			System.out.println("______________________________________________________________________________________________________________________________________________________________________________________________________________________");
-			
+			int i = 1;
 			for(CD item: cds) {
-				int i = 1;
 				System.out.println(String.format("%20s %30s %30s %20s %20s %20s %20s",i , item.getName() ,item.getDescription(),item.getInventory() , item.getType()
 						,item.getStatus(),item.getPrice()));
 				i++;
