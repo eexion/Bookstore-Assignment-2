@@ -18,8 +18,27 @@ import interfaces.ICDS;
 
 @SuppressWarnings("deprecation")
 public class MainFunctions {
-	
-	public void menu() throws Exception {
+	public void adminMenu() throws Exception {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("What whould you like to do ?\n1. Update an Item\n2. Add new Items\n3. Add New Customer");
+		String option = scanner.nextLine();
+		switch (option) {
+		case "1":
+			UpdateItems updateItems = new UpdateItems();
+			updateItems.menu();
+			break;
+		case "2":
+			AddItems addItems = new AddItems();
+			addItems.menu();
+			break;
+		case "3":
+			AddCustomer addCustomer = new AddCustomer();
+			addCustomer.addNew();
+			break;
+		}
+	}
+
+	public void nonCustomerMenu() throws Exception {
 		Scanner scanner = new Scanner(System.in);
 		boolean isContinue = true;
 		Common common = new Common();
@@ -28,9 +47,62 @@ public class MainFunctions {
 			boolean finishSale = false;
 			ArrayList<Common> cart = new ArrayList<Common>();
 			System.out.println(
-					"\nWhat whould you like to do :\n1. Rent\n2. Purchase\n3. Print Products\n4. Show Cart\n5. Finish Sale\n6. Add New Items To Inventory\n7. Add To Existing Inventory \n8. Return Rented Item\n9. Exit");
+					"\nWhat whould you like to do :\n1. Purchase\n2. Print Products\n3. Show Cart\n4. Finish Sale\n5. Exit");
 			String option = scanner.nextLine();
-			AddItems addItems = new AddItems();		
+
+			switch (option) {
+			case "1":
+				cart = cart(1);
+				break;
+			case "2":
+				try {
+					printProducts();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				break;
+			case "3":
+				System.out.println(String.format("%40s %50s %20s %20s %20s %20s", "Name", "Description", "Quantity",
+						"Type", "Status", "price"));
+				System.out.println(
+						"______________________________________________________________________________________________________________________________________________________________________________________________________________________");
+				for (Common item : products) {
+					System.out.println(
+							String.format("%40s %50s %20s %20s %20s %20s", item.getName(), item.getDescription(),
+									item.getQuantity(), item.getType(), item.getStatus(), item.getPrice()));
+				}
+				break;
+			case "4":
+				finishSale = finishSale(products);
+				break;
+			case "5":
+				isContinue = false;
+				break;
+			default:
+				System.out.print("Invalid option");
+			}
+			for (Common item : cart) {
+				products.add(item);
+			}
+			if (finishSale) {
+				products = new ArrayList<Common>();
+			}
+		} while (isContinue);
+	}
+
+	public void customerMenu() throws Exception {
+		Scanner scanner = new Scanner(System.in);
+		boolean isContinue = true;
+		Common common = new Common();
+		ArrayList<Common> products = new ArrayList<Common>();
+		do {
+			boolean finishSale = false;
+			ArrayList<Common> cart = new ArrayList<Common>();
+			System.out.println(
+					"\nWhat whould you like to do :\n1. Rent\n2. Purchase\n3. Print Products\n4. Show Cart\n5. Finish Sale\n6. Return Rented Item\n7. Exit");
+			String option = scanner.nextLine();
+
 			switch (option) {
 			case "1":
 				cart = cart(1);
@@ -49,7 +121,8 @@ public class MainFunctions {
 			case "4":
 				System.out.println(String.format("%40s %50s %20s %20s %20s %20s", "Name", "Description", "Quantity",
 						"Type", "Status", "price"));
-				System.out.println("______________________________________________________________________________________________________________________________________________________________________________________________________________________");
+				System.out.println(
+						"______________________________________________________________________________________________________________________________________________________________________________________________________________________");
 				for (Common item : products) {
 					System.out.println(
 							String.format("%40s %50s %20s %20s %20s %20s", item.getName(), item.getDescription(),
@@ -57,19 +130,18 @@ public class MainFunctions {
 				}
 				break;
 			case "5":
-				finishSale = finishSale(products);			
+				System.out.println("Enter Customer Name: ");
+				String customerName = scanner.nextLine();
+				String total = Double.toString(common.calculateTotal(products));
+				JsonHandler handler = new JsonHandler();
+				handler.updateCustomerJson(customerName, "amountSpent", total);
+				finishSale = finishSale(products);
 				break;
 			case "6":
-				addItems.menu(false);
-				break;
-			case "7":	
-				addItems.menu(true);
-				break;
-			case "8":
 				ReturnItems returnItems = new ReturnItems();
 				returnItems.returning();
 				break;
-			case "9":
+			case "7":
 				isContinue = false;
 				break;
 			default:
@@ -78,7 +150,7 @@ public class MainFunctions {
 			for (Common item : cart) {
 				products.add(item);
 			}
-			if(finishSale) {
+			if (finishSale) {
 				products = new ArrayList<Common>();
 			}
 		} while (isContinue);
@@ -89,28 +161,30 @@ public class MainFunctions {
 		JsonHandler update = new JsonHandler();
 		for (Common item : products) {
 			int remaining = item.getInventory() - item.getQuantity();
-			System.out.println(item);			
-			if(item.getIsRented()) {
+			System.out.println(item);
+			if (item.getIsRented()) {
 				int rented = item.getRented();
-				update.updateJson(item.getCategory(), item.getName(), "rented", Integer.toString(rented +=item.getQuantity()));
-			}else {
+				update.updateJson(item.getCategory(), item.getName(), "rented",
+						Integer.toString(rented += item.getQuantity()));
+			} else {
 				update.updateJson(item.getCategory(), item.getName(), "inventory", Integer.toString(remaining));
 			}
 
 		}
-		System.out.println(String.format("%40s %50s %20s %20s %20s %20s", "Name", "Description", "Quantity",
-				"Type", "Status", "price"));
-		System.out.println("______________________________________________________________________________________________________________________________________________________________________________________________________________________");
+		System.out.println(String.format("%40s %50s %20s %20s %20s %20s", "Name", "Description", "Quantity", "Type",
+				"Status", "price"));
+		System.out.println(
+				"______________________________________________________________________________________________________________________________________________________________________________________________________________________");
 		for (Common item : products) {
-			System.out.println(
-					String.format("%40s %50s %20s %20s %20s %20s", item.getName(), item.getDescription(),
-							item.getQuantity(), item.getType(), item.getStatus(), item.getPrice()));
+			System.out.println(String.format("%40s %50s %20s %20s %20s %20s", item.getName(), item.getDescription(),
+					item.getQuantity(), item.getType(), item.getStatus(), item.getPrice()));
 		}
 		double total = common.calculateTotal(products);
 		System.out.println("\nGrand Total " + total);
+		
 		return true;
 	}
-	
+
 	public ArrayList<Common> cart(int option) throws Exception {
 		ArrayList<Common> cart = new ArrayList<Common>();
 		if (option == 1) {

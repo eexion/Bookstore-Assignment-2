@@ -24,7 +24,7 @@ public class JsonHandler {
 		while (iterator.hasNext()) {
 			JSONObject json = (JSONObject) iterator.next();
 			String name = (String) json.get("name");
-			if (name.equals(itemToUpdate)) {
+			if (name.equalsIgnoreCase(itemToUpdate)) {
 				json.put(valueToUpdate, valueToSet);
 				try (FileWriter file = new FileWriter("products.json")) {
 					file.write(obj.toString());
@@ -58,6 +58,31 @@ public class JsonHandler {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			throw e;
+		}
+	}
+	
+	public void updateCustomerJson(String itemToUpdate, String valueToUpdate, String valueToSet)
+			throws FileNotFoundException, IOException, ParseException {
+		JSONParser parser = new JSONParser();
+		Object obj;
+		obj = parser.parse(new FileReader("customer.json"));
+		JSONObject jsonObject = (JSONObject) obj;
+		JSONArray msg = (JSONArray) jsonObject.get("customers");
+		Iterator<JSONObject> iterator = msg.iterator();
+		while (iterator.hasNext()) {
+			JSONObject json = (JSONObject) iterator.next();
+			String name = (String) json.get("name");
+			if (name.equalsIgnoreCase(itemToUpdate)) {
+				double amount = (double) json.get("amountSpent");
+				
+				double value = Double.parseDouble(valueToSet);
+				double total = amount + value;
+				System.out.println(amount + "\n" + total +"\n"+ value);
+				json.put("amountSpent", value);
+				try (FileWriter file = new FileWriter("customer.json")) {
+					file.write(obj.toString());
+				}
+			}
 		}
 	}
 }

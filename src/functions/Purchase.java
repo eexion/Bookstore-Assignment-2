@@ -62,6 +62,7 @@ public class Purchase {
 				int i = 1;
 				System.out.println(String.format("%20s %30s %30s %20s %20s %20s %20s",i , item.getName() ,item.getDescription(),item.getInventory() , item.getType()
 						,item.getStatus(),item.getPrice()));
+				i++;
 			}
 			int index = Integer.parseInt(scanner.nextLine());
 			Book bookToReturn = books.get(index - 1);
@@ -138,6 +139,7 @@ public class Purchase {
 					int i = 1;
 					System.out.println(String.format("%20s %30s %30s %20s %20s %20s %20s",i , item.getName() ,item.getDescription(),item.getInventory() , item.getType()
 							,item.getStatus(),item.getPrice()));
+					i++;
 				}
 				int index = Integer.parseInt(scanner.nextLine());
 				DVD dvdToReturn = dvds.get(index - 1);
@@ -210,6 +212,7 @@ public class Purchase {
 					int i = 1;
 					System.out.println(String.format("%20s %30s %30s %20s %20s %20s %20s",i , item.getName() ,item.getDescription(),item.getInventory() , item.getType()
 							,item.getStatus(),item.getPrice()));
+					i++;
 				}
 				int index = Integer.parseInt(scanner.nextLine());
 				CD cdToReturn = cds.get(index - 1);
@@ -283,6 +286,7 @@ public class Purchase {
 					int i = 1;
 					System.out.println(String.format("%20s %30s %30s %20s %20s %20s %20s",i , item.getName() ,item.getDescription(),item.getInventory() , item.getType()
 							,item.getStatus(),item.getPrice()));
+					i++;
 				}
 				int index = Integer.parseInt(scanner.nextLine());
 				Software softwareToReturn = softwares.get(index - 1);
@@ -354,6 +358,7 @@ public class Purchase {
 					int i = 1;
 					System.out.println(String.format("%20s %30s %30s %20s %20s %20s %20s",i , item.getName() ,item.getDescription(),item.getInventory() , item.getType()
 							,item.getStatus(),item.getPrice()));
+					i++;
 					
 				}
 				int index = Integer.parseInt(scanner.nextLine());

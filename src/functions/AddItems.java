@@ -1,9 +1,19 @@
 package functions;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
 public class AddItems {
-	public void menu(boolean edit) {
+	@SuppressWarnings("resource")
+	public void menu() throws Exception {
 		Scanner scanner = new Scanner(System.in);
 		boolean isContinue = true;
 		do {
@@ -12,40 +22,22 @@ public class AddItems {
 			String option = scanner.nextLine();
 			switch (option) {
 			case "1":
-				if(edit)
-					updateInventory("books");
-				else
-					addNewItems("books");
+				addNewItems("books");
 				break;
 			case "2":
-				if(edit)
-					updateInventory("dvd");
-				else
-					addNewItems("dvd");
+				addNewItems("dvd");
 				break;
 			case "3":
-				if(edit)
-					updateInventory("cd");
-				else
-					addNewItems("cd");
+				addNewItems("cd");
 				break;
 			case "4":
-				if(edit)
-					updateInventory("hardware");
-				else
-					addNewItems("hardware");
+				addNewItems("hardware");
 				break;
 			case "5":
-				if(edit)
-					updateInventory("software");
-				else
-					addNewItems("software");
+				addNewItems("software");
 				break;
 			case "6":
-				if(edit)
-					updateInventory("stationary");
-				else
-					addNewItems("stationary");
+				addNewItems("stationary");
 				break;
 			case "7":
 				boolean backConfirm = false;
@@ -66,11 +58,68 @@ public class AddItems {
 			}
 		} while (isContinue);
 	}
-	public void updateInventory(String toUpdate) {
-		
-	}
 
-	public void addNewItems(String toAdd) {
-		
+	@SuppressWarnings({ "unchecked", "deprecation" })
+	public void addNewItems(String toAdd) throws FileNotFoundException, IOException, ParseException {
+		Scanner scanner = new Scanner(System.in);
+		JSONObject obj2 = new JSONObject();
+
+		System.out.println("Name of " + toAdd + " you want to add : ");
+		String name = scanner.nextLine();
+		obj2.put("name", name);
+
+		System.out.println("Description of " + toAdd + " you want to add : ");
+		String description = scanner.nextLine();
+		obj2.put("description", description);
+
+		System.out.println("Number of " + toAdd + " you want to add : ");
+		String inventory = scanner.nextLine();
+		obj2.put("inventory", inventory);
+
+		System.out.println("Type of " + toAdd + " you want to add : ");
+		String type = scanner.nextLine();
+		obj2.put("type", type);
+
+		System.out.println("Price of " + toAdd + " you want to add : ");
+		String price = scanner.nextLine();
+		obj2.put("price", Double.parseDouble(price));
+
+		if (toAdd.equalsIgnoreCase("cd") || toAdd.equalsIgnoreCase("dvd") || toAdd.equalsIgnoreCase("books")) {
+
+			System.out.println("Author of " + toAdd + " you want to add : ");
+			String author = scanner.nextLine();
+			obj2.put("Author", author);
+
+			System.out.println("Rental Price of " + toAdd + " you want to add : ");
+			String rentalPrice = scanner.nextLine();
+			obj2.put("rentalPrice", rentalPrice);
+
+			System.out.println("Year of " + toAdd + " you want to add : ");
+			String year = scanner.nextLine();
+			obj2.put("year", year);
+		} else if (toAdd.equals("Hardware")) {
+			System.out.println("Manufacturer of " + toAdd + " you want to add : ");
+			String manufacturer = scanner.nextLine();
+			obj2.put("manufacturer", manufacturer);
+			System.out.println("Model of " + toAdd + " you want to add : ");
+			String model = scanner.nextLine();
+			obj2.put("model", model);
+		} else {
+			System.out.println("Manufacturer of " + toAdd + " you want to add : ");
+			String manufacturer = scanner.nextLine();
+			obj2.put("manufacturer", manufacturer);
+		}
+		obj2.put("rented", "0");
+		obj2.put("status", "Available");
+
+		JSONParser parser = new JSONParser();
+		Object obj;
+		obj = parser.parse(new FileReader("products.json"));
+		JSONObject jsonObject = (JSONObject) obj;
+		JSONArray msg = (JSONArray) jsonObject.get(toAdd);
+		msg.add(obj2);
+		try (FileWriter file = new FileWriter("products.json")) {
+			file.write(obj.toString());
+		}
 	}
 }
