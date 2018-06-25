@@ -52,7 +52,7 @@ public class MainFunctions {
 
 			switch (option) {
 			case "1":
-				cart = cart(1);
+				cart = cart(2);
 				break;
 			case "2":
 				try {
