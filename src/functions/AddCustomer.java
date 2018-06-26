@@ -14,6 +14,7 @@ import org.json.simple.parser.ParseException;
 import bookstore.Customer;
 
 public class AddCustomer {
+	@SuppressWarnings({ "deprecation", "unchecked" })
 	public void addNew() throws FileNotFoundException, IOException, ParseException {
 		Scanner scanner = new Scanner(System.in);
 		Customer customer = new Customer();

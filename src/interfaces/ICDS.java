@@ -23,4 +23,6 @@ public interface ICDS {
 
 	public void setDuration(double duration);
 	
+
+	
 }

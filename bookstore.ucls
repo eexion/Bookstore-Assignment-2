@@ -4,7 +4,7 @@
   router="FAN">  
   <class id="1" language="java" name="bookstore.Stationary" project="Bookstore-Assignemtent-2" 
     file="/Bookstore-Assignemtent-2/src/bookstore/Stationary.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="160" width="187" x="185" y="639"/>    
+    <position height="-1" width="-1" x="200" y="134"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -13,7 +13,7 @@
   </class>  
   <class id="2" language="java" name="bookstore.DVD" project="Bookstore-Assignemtent-2" 
     file="/Bookstore-Assignemtent-2/src/bookstore/DVD.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="322" width="207" x="412" y="639"/>    
+    <position height="-1" width="-1" x="437" y="520"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -31,7 +31,7 @@
   </class>  
   <class id="4" language="java" name="bookstore.Hardware" project="Bookstore-Assignemtent-2" 
     file="/Bookstore-Assignemtent-2/src/bookstore/Hardware.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="214" width="192" x="659" y="639"/>    
+    <position height="-1" width="-1" x="185" y="343"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -40,7 +40,7 @@
   </class>  
   <class id="5" language="java" name="bookstore.Book" project="Bookstore-Assignemtent-2" 
     file="/Bookstore-Assignemtent-2/src/bookstore/Book.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="214" width="150" x="891" y="639"/>    
+    <position height="-1" width="-1" x="1198" y="-78"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -49,7 +49,7 @@
   </class>  
   <class id="6" language="java" name="bookstore.CD" project="Bookstore-Assignemtent-2" 
     file="/Bookstore-Assignemtent-2/src/bookstore/CD.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="322" width="198" x="1081" y="639"/>    
+    <position height="-1" width="-1" x="1341" y="341"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -58,7 +58,7 @@
   </class>  
   <class id="7" language="java" name="bookstore.Common" project="Bookstore-Assignemtent-2" 
     file="/Bookstore-Assignemtent-2/src/bookstore/Common.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="772" width="350" x="758" y="-173"/>    
+    <position height="-1" width="-1" x="874" y="203"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -67,34 +67,64 @@
   </class>  
   <class id="8" language="java" name="bookstore.Software" project="Bookstore-Assignemtent-2" 
     file="/Bookstore-Assignemtent-2/src/bookstore/Software.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="214" width="150" x="1319" y="639"/>    
+    <position height="-1" width="-1" x="1393" y="24"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <generalization id="9">    
+  <interface id="9" language="java" name="interfaces.ICDS" project="Bookstore-Assignemtent-2" 
+    file="/Bookstore-Assignemtent-2/src/interfaces/ICDS.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1165" y="740"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="10" language="java" name="interfaces.ICommon" project="Bookstore-Assignemtent-2" 
+    file="/Bookstore-Assignemtent-2/src/interfaces/ICommon.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1659" y="153"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <realization id="11">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="9"/>  
+  </realization>  
+  <generalization id="12">    
     <end type="SOURCE" refId="5"/>    
     <end type="TARGET" refId="7"/>  
   </generalization>  
-  <generalization id="10">    
+  <generalization id="13">    
     <end type="SOURCE" refId="2"/>    
     <end type="TARGET" refId="7"/>  
   </generalization>  
-  <generalization id="11">    
+  <realization id="14">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="10"/>  
+  </realization>  
+  <generalization id="15">    
     <end type="SOURCE" refId="4"/>    
     <end type="TARGET" refId="7"/>  
   </generalization>  
-  <generalization id="12">    
+  <generalization id="16">    
     <end type="SOURCE" refId="6"/>    
     <end type="TARGET" refId="7"/>  
   </generalization>  
-  <generalization id="13">    
+  <realization id="17">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="9"/>  
+  </realization>  
+  <generalization id="18">    
     <end type="SOURCE" refId="8"/>    
     <end type="TARGET" refId="7"/>  
   </generalization>  
-  <generalization id="14">    
+  <generalization id="19">    
     <end type="SOURCE" refId="1"/>    
     <end type="TARGET" refId="7"/>  
   </generalization>  
