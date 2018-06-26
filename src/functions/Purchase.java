@@ -12,7 +12,7 @@ import bookstore.Common;
 import bookstore.DVD;
 import bookstore.Hardware;
 import bookstore.Software;
-import bookstore.Stationary;
+import bookstore.Stationery;
 
 public class Purchase {
 	public Book purchaseBook() throws Exception{
@@ -391,7 +391,7 @@ public class Purchase {
 		 Scanner scanner = new Scanner(System.in);
 			try {
 				ArrayList<JSONObject> products = JsonHandler.readJson("stationary");
-				ArrayList<Stationary> stationaries = new ArrayList<Stationary>();
+				ArrayList<Stationery> stationaries = new ArrayList<Stationery>();
 				MainFunctions.show(products);
 				System.out.println("\nWhat Would you Like To Purchase?");
 				String inputName = scanner.nextLine();
@@ -409,18 +409,18 @@ public class Purchase {
 					int inventory = (int) Integer.parseInt((String)item.get("inventory"));
 					String modelNumber = (String)item.get("model");
 				    if (Pattern.compile(Pattern.quote(inputName), Pattern.CASE_INSENSITIVE).matcher(name).find()){
-				    	Stationary stationary = new Stationary();		
-				        stationary.setName(name);
-				        stationary.setDescription(description);
-				        stationary.setInventory(inventory);
-				        stationary.setPrice(price);
-				        stationary.setManufacturer(manufacturer);
-				        stationary.setQuantity(1);
-				        stationary.setRentalPrice(rentalPrice);
-				        stationary.setStatus(status);
-				        stationary.setType(type);
-				        stationary.setCategory("stationary");
-				        stationaries.add(stationary);
+				    	Stationery stationery = new Stationery();		
+				        stationery.setName(name);
+				        stationery.setDescription(description);
+				        stationery.setInventory(inventory);
+				        stationery.setPrice(price);
+				        stationery.setManufacturer(manufacturer);
+				        stationery.setQuantity(1);
+				        stationery.setRentalPrice(rentalPrice);
+				        stationery.setStatus(status);
+				        stationery.setType(type);
+				        stationery.setCategory("stationary");
+				        stationaries.add(stationery);
 				        found = true;
 				    }
 				}
@@ -429,7 +429,7 @@ public class Purchase {
 				System.out.println(String.format("%20s %30s %30s %20s %20s %20s %20s","Index","Name" ,"Description" ,"Inventory" ,"Type" ,"Status", "price"));
 				System.out.println("______________________________________________________________________________________________________________________________________________________________________________________________________________________");
 				int i = 1;
-				for(Stationary item: stationaries) {
+				for(Stationery item: stationaries) {
 
 					System.out.println(String.format("%20s %30s %30s %20s %20s %20s %20s",i , item.getName() ,item.getDescription(),item.getInventory() , item.getType()
 							,item.getStatus(),item.getPrice()));
@@ -437,7 +437,7 @@ public class Purchase {
 					
 				}
 				int index = Integer.parseInt(scanner.nextLine());
-				Stationary hardwareToReturn = stationaries.get(index - 1);
+				Stationery hardwareToReturn = stationaries.get(index - 1);
 				boolean isTrue = true;	
 				do {
 					System.out.println("Enter the quantity : ");
@@ -460,41 +460,4 @@ public class Purchase {
 				throw e;
 			}
 	 }
-	
-	/*public void convert() {
-		Common product = null;
-		for (JSONObject item : arr) {
-			switch(key) {
-			case "books":
-				product = new Book();
-				break;
-			case "hardware":
-				product = new Hardware();
-				break;
-			case "dvd":
-				product = new DVD();
-				break;
-			case "cd":
-				product = new CD();
-				break;
-			case "software":
-				product = new Software();
-			}
-			
-			String name = (String) item.get("name");
-			String description = (String) item.get("description");
-			String type = (String) item.get("type");
-			String status = (String) item.get("status");
-			double price = (double) item.get("price");
-			String rentalPrice = item.get("rentalPrice").toString();
-			int inventory = (int) Integer.parseInt(item.get("inventory").toString());
-			product.setInventory(inventory);
-			product.setType(type);
-			product.setDescription(description);
-			product.setRentalPrice(rentalPrice);
-			product.setPrice(price);
-			product.setStatus(status);
-			product.setName(name);
-		}
-	}*/
 }

@@ -2,8 +2,8 @@
 <class-diagram version="1.2.2" icons="true" automaticImage="JPEG" always-add-relationships="false" 
   generalizations="true" realizations="true" associations="true" dependencies="false" nesting-relationships="true" 
   router="FAN">  
-  <class id="1" language="java" name="bookstore.Stationary" project="Bookstore-Assignemtent-2" 
-    file="/Bookstore-Assignemtent-2/src/bookstore/Stationary.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="1" language="java" name="bookstore.Stationery" project="Bookstore-Assignemtent-2" 
+    file="/Bookstore-Assignemtent-2/src/bookstore/Stationery.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="200" y="134"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      

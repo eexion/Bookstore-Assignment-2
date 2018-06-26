@@ -1,11 +1,11 @@
 package bookstore;
 
-public class Stationary extends Common {
+public class Stationery extends Common {
 	private String manufacturer;
-	public Stationary(String manufacturer) {
+	public Stationery(String manufacturer) {
 		this.manufacturer = manufacturer;
 	}
-	public Stationary() {
+	public Stationery() {
 		this("");
 	}
 	public void setManufacturer(String manufacturer) {
