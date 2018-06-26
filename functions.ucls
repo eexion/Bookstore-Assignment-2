@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.2" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="functions.JsonHandler" project="Bookstore-Assignemtent-2" 
+    file="/Bookstore-Assignemtent-2/src/functions/JsonHandler.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="142" width="292" x="261" y="275"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="functions.Rent" project="Bookstore-Assignemtent-2" 
+    file="/Bookstore-Assignemtent-2/src/functions/Rent.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="142" width="142" x="593" y="275"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="functions.AddItems" project="Bookstore-Assignemtent-2" 
+    file="/Bookstore-Assignemtent-2/src/functions/AddItems.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="124" width="172" x="775" y="275"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="functions.Purchase" project="Bookstore-Assignemtent-2" 
+    file="/Bookstore-Assignemtent-2/src/functions/Purchase.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="196" width="202" x="987" y="275"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="functions.ReturnItems" project="Bookstore-Assignemtent-2" 
+    file="/Bookstore-Assignemtent-2/src/functions/ReturnItems.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="160" width="123" x="1229" y="275"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="functions.UpdateItems" project="Bookstore-Assignemtent-2" 
+    file="/Bookstore-Assignemtent-2/src/functions/UpdateItems.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="124" width="184" x="1392" y="275"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="functions.MainFunctions" project="Bookstore-Assignemtent-2" 
+    file="/Bookstore-Assignemtent-2/src/functions/MainFunctions.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="250" width="259" x="1616" y="275"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="functions.AddCustomer" project="Bookstore-Assignemtent-2" 
+    file="/Bookstore-Assignemtent-2/src/functions/AddCustomer.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="106" width="120" x="1915" y="275"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
