@@ -13,7 +13,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 public class JsonHandler {
-	public void updateJson(String key, String itemToUpdate, String valueToUpdate, String valueToSet)
+	public void updateJson(String key, String itemToUpdate, String valueToUpdate, String valueToSet, double price)
 			throws FileNotFoundException, IOException, ParseException {
 		JSONParser parser = new JSONParser();
 		Object obj;
@@ -25,7 +25,12 @@ public class JsonHandler {
 			JSONObject json = (JSONObject) iterator.next();
 			String name = (String) json.get("name");
 			if (name.equalsIgnoreCase(itemToUpdate)) {
-				json.put(valueToUpdate, valueToSet);
+				if(valueToSet.equals("")) {
+					json.put(valueToUpdate, price);
+				}else {
+					json.put(valueToUpdate, valueToSet);
+				}
+
 				try (FileWriter file = new FileWriter("products.json")) {
 					file.write(obj.toString());
 				}

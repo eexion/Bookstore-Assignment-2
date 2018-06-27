@@ -164,9 +164,9 @@ public class MainFunctions {
 			if (item.getIsRented()) {
 				int rented = item.getRented();
 				update.updateJson(item.getCategory(), item.getName(), "rented",
-						Integer.toString(rented += item.getQuantity()));
+						Integer.toString(rented += item.getQuantity()),0);
 			} else {
-				update.updateJson(item.getCategory(), item.getName(), "inventory", Integer.toString(remaining));
+				update.updateJson(item.getCategory(), item.getName(), "inventory", Integer.toString(remaining), 0);
 			}
 
 		}
@@ -348,7 +348,7 @@ public class MainFunctions {
 			String description = (String) item.get("description");
 			String type = (String) item.get("type");
 			String status = (String) item.get("status");
-			double price = (double) item.get("price");
+			double price = (double)item.get("price");
 			String rentalPrice = item.get("rentalPrice").toString();
 			int inventory = (int) Integer.parseInt(item.get("inventory").toString());
 			System.out.println(String.format("%40s %50s %20s %20s %20s %20s %20s", name, description, inventory, type,

@@ -71,7 +71,7 @@ public class Rent {
 				String quantity = scanner.nextLine();
 				int available = bookToReturn.getInventory() - bookToReturn.getRented();
 				if(available < Integer.parseInt(quantity)) {
-					System.out.println("Not enough inventory for this purchase there is only " + bookToReturn.getInventory() + " available");
+					System.out.println("Not enough inventory for this purchase there is only " + bookToReturn.getInventory() + "available, " +  bookToReturn.getRented() + " are rented out");
 				}else {
 					bookToReturn.setQuantity(Integer.parseInt(quantity));
 					isTrue = false;
@@ -149,7 +149,7 @@ public class Rent {
 				String quantity = scanner.nextLine();
 				int available = dvdToReturn.getInventory() - dvdToReturn.getRented();
 				if(available < Integer.parseInt(quantity)) {
-					System.out.println("Not enough inventory for this purchase there is only " + dvdToReturn.getInventory() + " available");
+					System.out.println("Not enough inventory for this purchase there is only " + dvdToReturn.getInventory() + "available, " + dvdToReturn.getRented() + " are rented out");
 				}else {
 					dvdToReturn.setQuantity(Integer.parseInt(quantity));
 					isTrue = false;
@@ -224,7 +224,7 @@ public class Rent {
 				String quantity = scanner.nextLine();
 				int available = cdToReturn.getInventory() - cdToReturn.getRented();
 				if(available < Integer.parseInt(quantity)) {
-					System.out.println("Not enough inventory for this purchase there is only " + cdToReturn.getInventory() + " available");
+					System.out.println("Not enough inventory for this purchase there is only " + cdToReturn.getInventory() + "available, " + cdToReturn.getRented() + " are rented out");
 				}else {
 					cdToReturn.setQuantity(Integer.parseInt(quantity));
 					isTrue = false;

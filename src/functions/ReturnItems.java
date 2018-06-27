@@ -104,7 +104,7 @@ public class ReturnItems {
 					System.out.println("There are only " + bookToReturn.getRented() + " books rented out");
 				} else {
 					int update = bookToReturn.getRented() - Integer.parseInt(returning);
-					handler.updateJson("books", bookToReturn.getName(), "rented", Integer.toString(update));				
+					handler.updateJson("books", bookToReturn.getName(), "rented", Integer.toString(update),0);				
 				}
 			}
 		} catch (FileNotFoundException e) {
@@ -182,7 +182,7 @@ public class ReturnItems {
 					System.out.println("There are only " + toReturn.getRented() + " cds rented out");
 				} else {
 					int update = toReturn.getRented() - Integer.parseInt(returning);
-					handler.updateJson("cd", inputName, "rented", Integer.toString(update));
+					handler.updateJson("cd", inputName, "rented", Integer.toString(update),0);
 				}
 			}
 		} catch (FileNotFoundException e) {
@@ -260,7 +260,7 @@ public class ReturnItems {
 					System.out.println("There are only " + toReturn.getRented() + " DVD's rented out");
 				} else {
 					int update = toReturn.getRented() - Integer.parseInt(returning);
-					handler.updateJson("dvd", toReturn.getName(), "rented", Integer.toString(update));
+					handler.updateJson("dvd", toReturn.getName(), "rented", Integer.toString(update),0);
 				}
 			}
 		} catch (FileNotFoundException e) {

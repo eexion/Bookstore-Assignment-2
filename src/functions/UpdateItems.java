@@ -112,7 +112,12 @@ public class UpdateItems {
 		}
 		if(correctVal) {
 			JsonHandler handler = new JsonHandler();
-			handler.updateJson(toUpdate, name, valueToUpdate, valueToSet);
+			if(valueToUpdate.equalsIgnoreCase("price")) {
+				handler.updateJson(toUpdate, name, valueToUpdate, "", Double.parseDouble(valueToSet));
+			}else {
+				handler.updateJson(toUpdate, name, valueToUpdate, valueToSet, 0.0);
+			}
+			
 		}		
 	}
 }
